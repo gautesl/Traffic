@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://scripts/evil.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 30.26, 37.2415 )
+
+[node name="evil" type="KinematicBody2D" groups=[ "enemy", "removable" ]]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.932322, 0, 0, 0.801753, 0.199861, 0.582609 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+__meta__ = { "_edit_group_":true }
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+modulate = Color( 0.713726, 0.164706, 0.164706, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 0.199861, 0.582609 )
+transform/scale = Vector2( 0.932322, 0.801753 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+

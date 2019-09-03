@@ -1,0 +1,160 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://scripts/wall.gd" type="Script" id=1]
+[ext_resource path="res://sprites/wall.png" type="Texture" id=2]
+[ext_resource path="res://sprites/shadow.png" type="Texture" id=3]
+[ext_resource path="res://sprites/bullut.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 199.257, 49.1705 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 25.1903, 16.4902 )
+
+[node name="wall" type="StaticBody2D" groups=[ "removable", "wall" ]]
+
+transform/scale = Vector2( 4, 1.2 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.16, 0, 0, 0.6, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script/script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/scale = Vector2( 0.16, 0.6 )
+texture = ExtResource( 2 )
+modulate = Color( 0.647059, 0.278431, 0, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+visibility/visible = false
+transform/scale = Vector2( 0.16, 0.6 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+visibility/visible = false
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Tower1" type="Sprite" parent="."]
+
+visibility/visible = false
+transform/scale = Vector2( 0.0694505, 0.185631 )
+texture = ExtResource( 3 )
+__meta__ = { "_edit_group_":true }
+
+[node name="Sprite" type="Sprite" parent="Tower1"]
+
+transform/pos = Vector2( 0, -58.4123 )
+transform/scale = Vector2( 1, 2.94708 )
+texture = ExtResource( 4 )
+
+[node name="Tower2" type="Sprite" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/scale = Vector2( 0.0694505, 0.185631 )
+texture = ExtResource( 3 )
+__meta__ = { "_edit_group_":true }
+
+[node name="Sprite" type="Sprite" parent="Tower2"]
+
+transform/pos = Vector2( 0, -58.4123 )
+transform/scale = Vector2( 1, 2.94708 )
+texture = ExtResource( 4 )
+
+[node name="Tower3" type="Sprite" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 20, 0 )
+transform/scale = Vector2( 0.0694505, 0.185631 )
+texture = ExtResource( 3 )
+__meta__ = { "_edit_group_":true }
+
+[node name="Sprite" type="Sprite" parent="Tower3"]
+
+transform/pos = Vector2( 0, -58.4123 )
+transform/scale = Vector2( 1, 2.94708 )
+texture = ExtResource( 4 )
+
+[node name="Shoot_timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.25
+one_shot = false
+autostart = false
+
+[node name="Points" type="Node2D" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/scale = Vector2( 0.16, 0.6 )
+
+[node name="Node2D1" type="Node2D" parent="Points"]
+
+transform/pos = Vector2( -160.356, 0 )
+
+[node name="Node2D6" type="Node2D" parent="Points"]
+
+transform/pos = Vector2( -119.63, 0 )
+
+[node name="Node2D2" type="Node2D" parent="Points"]
+
+transform/pos = Vector2( -90.3591, 0 )
+
+[node name="Node2D7" type="Node2D" parent="Points"]
+
+transform/pos = Vector2( -53.4519, 0 )
+
+[node name="Node2D3" type="Node2D" parent="Points"]
+
+transform/pos = Vector2( -3.81799, 0 )
+
+[node name="Node2D8" type="Node2D" parent="Points"]
+
+transform/pos = Vector2( 30.5439, 0 )
+
+[node name="Node2D4" type="Node2D" parent="Points"]
+
+transform/pos = Vector2( 58.5425, 0 )
+
+[node name="Node2D9" type="Node2D" parent="Points"]
+
+transform/pos = Vector2( 87.8138, 2.26252 )
+
+[node name="Node2D5" type="Node2D" parent="Points"]
+
+transform/pos = Vector2( 125.994, 0 )
+
+[node name="Node2D10" type="Node2D" parent="Points"]
+
+transform/pos = Vector2( 157.81, 0 )
+
+

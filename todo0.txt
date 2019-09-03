@@ -1,0 +1,10 @@
+TODO
+#fix lag
+input map
+skillbar
+new levels
+
+skills:
+gravity turret
+ultrabeam
+barrier shortrange

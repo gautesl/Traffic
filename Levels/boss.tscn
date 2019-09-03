@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://scripts/boss.gd" type="Script" id=1]
+[ext_resource path="res://sprites/blank.png" type="Texture" id=2]
+[ext_resource path="res://sprites/boss.png" type="Texture" id=3]
+[ext_resource path="res://Levels/bar.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 37.2098, 37.2184 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 24.973, 24.9667 )
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "attack"
+length = 0.6
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D:visibility/visible")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.6 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Area2D:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.3, 0.6 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ 0.0, 0.4, 0.0 ] }
+
+[node name="boss" type="KinematicBody2D" groups=[ "boss", "enemy", "removable" ]]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+visibility/visible = false
+visibility/opacity = 0.0
+transform/scale = Vector2( 1.9, 1.9 )
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+
+texture = ExtResource( 2 )
+modulate = Color( 1, 0, 0, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+visibility/visible = false
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="bar" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, -40.8641 )
+transform/scale = Vector2( 1.5, 0.07 )
+outer_color = Color( 1, 0, 0, 1 )
+inner_color = Color( 0, 1, 0.109804, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/attack = SubResource( 3 )
+"anims/attack 2" = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Attack_timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+

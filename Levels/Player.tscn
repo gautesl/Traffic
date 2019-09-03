@@ -1,0 +1,343 @@
+[gd_scene load_steps=13 format=1]
+
+[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://sprites/wall.png" type="Texture" id=2]
+[ext_resource path="res://sprites/shadow.png" type="Texture" id=3]
+[ext_resource path="res://sprites/bullut.png" type="Texture" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Levels/bar.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.777, 8.82966 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 200.07, 49.971 )
+
+[sub_resource type="Animation" id=3]
+
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Color( 0.995514, 1, 0.425781, 1 ), Color( 0.898438, 1, 0, 1 ) ] }
+
+[sub_resource type="Animation" id=4]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Slow_range:visibility/visible")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Slow_range:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 0.2 ] }
+
+[sub_resource type="Animation" id=5]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Slow_range:visibility/visible")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Slow_range:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.05, 0.2 ] }
+
+[sub_resource type="CircleShape2D" id=6]
+
+custom_solver_bias = 0.0
+radius = 206.215
+
+[node name="Player" type="KinematicBody2D" groups=[ "Player" ]]
+
+z/z = 1
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 6.19986, 0, 0, 3.37889, -0.0188096, -0.340831 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 3
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+player_num = 0
+color = Color( 0, 0, 0, 1 )
+
+[node name="barrier_shadow" type="Area2D" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/scale = Vector2( 0.64, 0.72 )
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="Sprite" type="Sprite" parent="barrier_shadow"]
+
+texture = ExtResource( 2 )
+modulate = Color( 0.292969, 0.337158, 1, 1 )
+
+[node name="Tower1" type="Sprite" parent="barrier_shadow/Sprite"]
+
+editor/display_folded = true
+visibility/visible = false
+transform/scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="barrier_shadow/Sprite/Tower1"]
+
+transform/pos = Vector2( 0, -77.0812 )
+transform/scale = Vector2( 1, 3.56937 )
+texture = ExtResource( 4 )
+
+[node name="Tower2" type="Sprite" parent="barrier_shadow/Sprite"]
+
+editor/display_folded = true
+visibility/visible = false
+transform/scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="barrier_shadow/Sprite/Tower2"]
+
+transform/pos = Vector2( 0, -77.0812 )
+transform/scale = Vector2( 1, 3.56937 )
+texture = ExtResource( 4 )
+
+[node name="Tower3" type="Sprite" parent="barrier_shadow/Sprite"]
+
+editor/display_folded = true
+visibility/visible = false
+transform/scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="barrier_shadow/Sprite/Tower3"]
+
+transform/pos = Vector2( 0, -77.0812 )
+transform/scale = Vector2( 1, 3.56937 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="barrier_shadow"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( -0.0188096, -0.340831 )
+transform/scale = Vector2( 6.19986, 3.37889 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -21.0
+margin/top = -54.0
+margin/right = 19.0
+margin/bottom = -40.0
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Timers" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="shoot_timer" type="Timer" parent="Timers"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = false
+autostart = false
+
+[node name="self_slow_timer" type="Timer" parent="Timers"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="bullet_strength_timer" type="Timer" parent="Timers"]
+
+process_mode = 1
+wait_time = 6.0
+one_shot = false
+autostart = false
+
+[node name="bazooka_timer" type="Timer" parent="Timers"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = false
+autostart = false
+
+[node name="rotate_timer" type="Timer" parent="Timers"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = false
+autostart = false
+
+[node name="rapid_timer" type="Timer" parent="Timers"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = false
+autostart = false
+
+[node name="ghost_timer" type="Timer" parent="Timers"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = false
+autostart = false
+
+[node name="Animations" type="Node" parent="."]
+
+editor/display_folded = true
+
+[node name="bullet_strength_active" type="AnimationPlayer" parent="Animations"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/bullet_strength_active = SubResource( 3 )
+anims/slow_active = SubResource( 4 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="slow_active" type="AnimationPlayer" parent="Animations"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/slow_active = SubResource( 5 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Slow_range" type="Area2D" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+visibility/opacity = 0.05
+visibility/behind_parent = true
+input/pickable = true
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slow_range"]
+
+shape = SubResource( 6 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="Slow_range"]
+
+visibility/behind_parent = true
+transform/scale = Vector2( 2.1, 2.1 )
+texture = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="Slow_range"]
+
+process_mode = 1
+wait_time = 6.0
+one_shot = false
+autostart = false
+
+[node name="Bars" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="Health" parent="Bars" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 0, -35.6582 )
+transform/scale = Vector2( 1.2, 0.06 )
+outer_color = Color( 1, 0, 0, 1 )
+inner_color = Color( 0, 1, 0.109804, 1 )
+max_val = 3
+value = 3
+
+[node name="bomb_cd" parent="Bars" instance=ExtResource( 6 )]
+
+visibility/visible = false
+transform/pos = Vector2( 0, -39.2871 )
+transform/scale = Vector2( 1.2, 0.06 )
+inner_color = Color( 0.0313726, 0.0666667, 0.584314, 1 )
+max_val = 150
+value = 150
+outer_visible = false
+
+[node name="MS_cd" parent="Bars" instance=ExtResource( 6 )]
+
+visibility/visible = false
+transform/pos = Vector2( 0, -42.8 )
+transform/scale = Vector2( 1.2, 0.06 )
+inner_color = Color( 1, 0.960938, 0, 1 )
+max_val = 200
+value = 200
+outer_visible = false
+
+[node name="rapid_cd" parent="Bars" instance=ExtResource( 6 )]
+
+visibility/visible = false
+transform/pos = Vector2( 0, -46.4489 )
+transform/scale = Vector2( 1.2, 0.06 )
+inner_color = Color( 0.789063, 0.0215759, 0.0215759, 1 )
+max_val = 100
+value = 100
+outer_visible = false
+
+[node name="ghost_cd" parent="Bars" instance=ExtResource( 6 )]
+
+visibility/visible = false
+transform/pos = Vector2( 0, -50.0978 )
+transform/scale = Vector2( 1.2, 0.06 )
+inner_color = Color( 0.125, 0.0825195, 0.0825195, 1 )
+max_val = 275
+value = 275
+outer_visible = false
+
+

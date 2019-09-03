@@ -1,0 +1,650 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://scripts/shop.gd" type="Script" id=1]
+[ext_resource path="res://sprites/coin.png" type="Texture" id=2]
+[ext_resource path="res://Levels/shop_item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprites/wall.png" type="Texture" id=4]
+
+[node name="shop" type="Panel"]
+
+rect/scale = Vector2( 1.4, 1.4 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 160.0
+margin/top = 21.0
+margin/right = 571.0
+margin/bottom = 479.0
+script/script = ExtResource( 1 )
+
+[node name="Player" type="Label" parent="."]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 36.0
+margin/top = 2.0
+margin/right = 190.0
+margin/bottom = 16.0
+custom_colors/font_color = Color( 0.867188, 0.0508118, 0.0508118, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Player nr"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="welcome" type="Label" parent="."]
+
+editor/display_folded = true
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 206.0
+margin/top = 92.0
+margin/right = 279.0
+margin/bottom = 220.0
+custom_colors/font_color = Color( 0.953125, 0.836195, 0.204773, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Welcome to the shop!"
+align = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Sprite" type="Sprite" parent="welcome"]
+
+transform/pos = Vector2( 34.3093, 84.3517 )
+transform/scale = Vector2( 0.433552, 0.433552 )
+texture = ExtResource( 2 )
+
+[node name="coins" type="Label" parent="."]
+
+rect/scale = Vector2( 1.5, 1.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 35.0
+margin/top = 427.0
+margin/right = 103.0
+margin/bottom = 441.0
+custom_colors/font_color = Color( 0.867188, 0.0508118, 0.0508118, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Coins: 0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="item" parent="." instance=ExtResource( 3 )]
+
+visibility/visible = false
+margin/left = 163.0
+margin/top = 69.0
+margin/right = 323.0
+margin/bottom = 267.0
+
+[node name="Skills" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 46.0
+margin/right = 50.0
+margin/bottom = 86.0
+
+[node name="General_skills" type="VBoxContainer" parent="Skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 1.0
+margin/right = 148.0
+margin/bottom = 203.0
+alignment = 0
+__meta__ = { "_edit_group_":true }
+
+[node name="Fire rate" type="Button" parent="Skills/General_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 148.0
+margin/bottom = 20.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Fire rate"
+flat = true
+
+[node name="Bullet strength" type="Button" parent="Skills/General_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 24.0
+margin/right = 148.0
+margin/bottom = 44.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Bullet strength"
+flat = true
+
+[node name="Minesweeper" type="Button" parent="Skills/General_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 48.0
+margin/right = 148.0
+margin/bottom = 68.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Minesweeper"
+flat = true
+
+[node name="Black market" type="Button" parent="Skills/General_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 72.0
+margin/right = 148.0
+margin/bottom = 92.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Black market"
+flat = true
+
+[node name="Vampiric spirit" type="Button" parent="Skills/General_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 96.0
+margin/right = 148.0
+margin/bottom = 116.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Vampiric spirit"
+flat = true
+
+[node name="Builder_skills" type="VBoxContainer" parent="Skills"]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 1.99999
+margin/right = 148.0
+margin/bottom = 203.0
+alignment = 0
+__meta__ = { "_edit_group_":true }
+
+[node name="Tower" type="Button" parent="Skills/Builder_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 148.0
+margin/bottom = 20.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Tower"
+flat = true
+
+[node name="Tower fire rate" type="Button" parent="Skills/Builder_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 24.0
+margin/right = 148.0
+margin/bottom = 44.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+disabled = true
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Tower fire rate"
+flat = true
+
+[node name="Tower bullet strength" type="Button" parent="Skills/Builder_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 48.0
+margin/right = 148.0
+margin/bottom = 68.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+disabled = true
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Tower bullet strength"
+flat = true
+
+[node name="Barriers" type="Button" parent="Skills/Builder_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 72.0
+margin/right = 148.0
+margin/bottom = 92.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Barriers"
+flat = true
+
+[node name="Barrier lives" type="Button" parent="Skills/Builder_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 96.0
+margin/right = 148.0
+margin/bottom = 116.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+disabled = true
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Barrier lives"
+flat = true
+
+[node name="Barrier towers" type="Button" parent="Skills/Builder_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 96.0
+margin/right = 148.0
+margin/bottom = 116.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+disabled = true
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Barrier towers"
+flat = true
+
+[node name="Shooter_skills" type="VBoxContainer" parent="Skills"]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 1.99999
+margin/right = 148.0
+margin/bottom = 203.0
+alignment = 0
+__meta__ = { "_edit_group_":true }
+
+[node name="Shield" type="Button" parent="Skills/Shooter_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 148.0
+margin/bottom = 20.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Shield"
+flat = true
+
+[node name="Spin" type="Button" parent="Skills/Shooter_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 24.0
+margin/right = 148.0
+margin/bottom = 44.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Spin"
+flat = true
+
+[node name="Engineer_skills" type="VBoxContainer" parent="Skills"]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 1.99999
+margin/right = 148.0
+margin/bottom = 203.0
+alignment = 0
+__meta__ = { "_edit_group_":true }
+
+[node name="Bomb" type="Button" parent="Skills/Engineer_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 148.0
+margin/bottom = 20.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Bomb"
+flat = true
+
+[node name="Ghost" type="Button" parent="Skills/Engineer_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 24.0
+margin/right = 148.0
+margin/bottom = 44.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Ghost"
+flat = true
+
+[node name="Gravity disruptor" type="Button" parent="Skills/Engineer_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 24.0
+margin/right = 148.0
+margin/bottom = 44.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Gravity disruptor"
+flat = true
+
+[node name="Explosive mines" type="Button" parent="Skills/Engineer_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 24.0
+margin/right = 148.0
+margin/bottom = 44.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Explosive mines"
+flat = true
+
+[node name="Infection" type="Button" parent="Skills/Engineer_skills"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 24.0
+margin/right = 148.0
+margin/bottom = 44.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Infection"
+flat = true
+
+[node name="class_interface" type="Panel" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 285.0
+margin/right = 159.0
+margin/bottom = 413.0
+
+[node name="General_button" type="Button" parent="class_interface"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 153.0
+margin/bottom = 30.0
+custom_colors/font_color_disabled = Color( 1, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "General"
+flat = true
+
+[node name="Builder_button" type="Button" parent="class_interface"]
+
+hint/tooltip = "Requires rank 5"
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 30.0
+margin/right = 153.0
+margin/bottom = 60.0
+custom_colors/font_color_disabled = Color( 1, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Builder"
+flat = true
+
+[node name="Shooter_button" type="Button" parent="class_interface"]
+
+hint/tooltip = "Requires rank 5"
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 60.0
+margin/right = 153.0
+margin/bottom = 90.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Shooter"
+flat = true
+
+[node name="Engineer_button" type="Button" parent="class_interface"]
+
+hint/tooltip = "Requires rank 5"
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 90.0
+margin/right = 153.0
+margin/bottom = 120.0
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+custom_colors/font_color_pressed = Color( 0.576471, 0.0117647, 0.0117647, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Engineer"
+flat = true
+
+[node name="Sprite" type="Sprite" parent="class_interface"]
+
+transform/pos = Vector2( 74.5176, -10 )
+transform/scale = Vector2( 0.359935, 0.19144 )
+texture = ExtResource( 4 )
+modulate = Color( 0.0898438, 0.0898438, 0.0898438, 1 )
+
+[node name="rank_points" type="Label" parent="."]
+
+rect/scale = Vector2( 1.5, 1.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 235.0
+margin/top = 427.0
+margin/right = 346.0
+margin/bottom = 441.0
+custom_colors/font_color = Color( 0.867188, 0.0508118, 0.0508118, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Rank points: 0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

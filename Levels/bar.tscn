@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://scripts/bar.gd" type="Script" id=1]
+[ext_resource path="res://sprites/blank.png" type="Texture" id=2]
+
+[node name="Bars" type="Node2D"]
+
+transform/scale = Vector2( 1, 0.07 )
+script/script = ExtResource( 1 )
+__meta__ = { "_edit_group_":true }
+outer_color = Color( 0, 0, 0, 1 )
+inner_color = Color( 0, 0, 0, 1 )
+min_val = 0
+max_val = 10
+value = 10
+outer_visible = true
+
+[node name="outer" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+modulate = Color( 1, 0, 0, 1 )
+
+[node name="inner" type="Sprite" parent="."]
+
+transform/pos = Vector2( -25, -25 )
+texture = ExtResource( 2 )
+centered = false
+modulate = Color( 0, 1, 0.109375, 1 )
+region_rect = Rect2( 0, 0, 3, 50 )
+
+

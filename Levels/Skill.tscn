@@ -1,0 +1,149 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://scripts/skill.gd" type="Script" id=1]
+[ext_resource path="res://sprites/no_skill.png" type="Texture" id=2]
+[ext_resource path="res://sprites/blank.png" type="Texture" id=3]
+
+[node name="Skill" type="Panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+script/script = ExtResource( 1 )
+key_nr = "1"
+sprite = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 20, 20 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Shadow" type="Sprite" parent="."]
+
+visibility/opacity = 0.8
+transform/pos = Vector2( 1.25, 1.25 )
+transform/scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 3 )
+centered = false
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="Key_nr" type="Label" parent="."]
+
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 2.0
+margin/right = 12.0
+margin/bottom = 16.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Cooldown" type="Label" parent="."]
+
+visibility/visible = false
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -3.0
+margin/top = 6.0
+margin/right = 20.0
+margin/bottom = 20.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="SelectButton" type="Button" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1.0
+margin/top = -20.0
+margin/right = 39.0
+margin/bottom = 0.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "^"
+flat = false
+
+[node name="ButtonGroup" type="ButtonGroup" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -34.0
+margin/top = -22.0
+margin/right = 74.0
+margin/bottom = -2.0
+alignment = 0
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = false
+autostart = false
+
+[node name="Charge" type="Panel" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 41.0
+margin/right = 40.0
+margin/bottom = 50.0
+
+[node name="Label" type="Label" parent="Charge"]
+
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 1.0
+margin/right = 67.0
+margin/bottom = 16.0
+custom_colors/font_color = Color( 1, 0.820313, 0, 1 )
+text = "1"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Shadow" type="Sprite" parent="Charge"]
+
+visibility/opacity = 0.8
+transform/scale = Vector2( 0.8, 0.18 )
+texture = ExtResource( 3 )
+centered = false
+modulate = Color( 0, 0, 0, 1 )
+
+
